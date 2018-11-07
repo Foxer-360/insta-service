@@ -67,6 +67,10 @@ const server = http.createServer(function(req, res) {
       const payloadString = JSON.stringify(payload);
 
       res.setHeader('Content-Type', 'application/json');
+      	// Allow Cross Domain Request from anywhere...
+	    res.setHeader("Access-Control-Allow-Origin", "*");
+	    res.setHeader("Access-Control-Allow-Headers", "X-Requested-With");
+
 
       // Return the response;
       res.writeHead(statusCode);
