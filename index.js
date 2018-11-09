@@ -104,8 +104,6 @@ handlers.instagramFeed = function({
     count
   }
 }, callback) {
-
-  
   https.get(`https://api.instagram.com` +
     `/v1/users/self/media/recent/` +
     `?access_token=${config.accessToken}` +
@@ -126,8 +124,10 @@ handlers.instagramFeed = function({
       callback(200, JSON.parse(buffer));
     });
 
-    
-  })
+
+  }).on('error', (e) => {
+    console.error(e);
+  });
 }
 
 // Define a request router

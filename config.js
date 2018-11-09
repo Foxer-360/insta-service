@@ -10,15 +10,18 @@ const enviroments = {};
 enviroments.staging = {
   'port' : 3000,
   'envName' : 'staging',
-  'clientId' : '4cabc7334dad4b7bbeac6de3d4bb4148',
-  'clientSecret' : 'b45280497e5540e5869852d45c651aba',
-  'accessToken' : '3627563442.4cabc73.6c41b1d1d92845a89422715170c6e6b3'
+  'clientId' : process.env.CLIENT_ID,
+  'clientSecret' : process.env.CLIENT_SECRET,
+  'accessToken' : process.env.ACCESS_TOKEN
 };
 
 // Production enviroment
 enviroments.production = {
   'port' : 5000,
-  'envName' : 'production'
+  'envName' : 'production',
+  'clientId' : process.env.CLIENT_ID,
+  'clientSecret' : process.env.CLIENT_SECRET,
+  'accessToken' : process.env.ACCESS_TOKEN
 };
 
 // Determine which enviroment was passed as a command-line argument
