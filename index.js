@@ -121,11 +121,18 @@ handlers.instagramFeed = function({
 
     res.on('end', function(data) {
       buffer += decoder.end(); 
-      callback(200, JSON.parse(buffer));
+      try {
+        const parsedJson = JSON.parse(buffer);
+        callback(200, JSON.parse(parsedJson));
+      } catch (e) {
+        callback(400, e)
+        console.error(e);
+      }
     });
 
 
   }).on('error', (e) => {
+    callback(400, e)
     console.error(e);
   });
 }
