@@ -1,11 +1,13 @@
 var http = require('http');
 var express = require('express');
+var cors = require('cors');
 var api = require('instagram-node').instagram();
 var app = express();
 var feed = [];
 
 require('dotenv').config();
- 
+app.use(cors())
+
 var redirect_uri = `${process.env.INSTAGRAM_URL}/handleauth`;
 
 exports.authorize_user = function(req, res) {
