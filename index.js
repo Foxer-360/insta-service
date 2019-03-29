@@ -43,7 +43,15 @@ exports.handleauth = function(req, res) {
 exports.feed = function(req, res) {
   const limit = req.query.count || process.env.INSTAGRAM_DEFAULT_LIMIT;
   if(!Array.isArray(feed)) return [];
-  res.send(feed.splice(0, limit));
+  res.send(
+    {
+      pagination: {},
+      data: feed.splice(0, limit),
+      meta: {
+        code: 200
+      }
+    }
+  );
 };
  
 // This is where you would initially send users to authorize
