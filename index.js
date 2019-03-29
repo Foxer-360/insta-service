@@ -41,7 +41,7 @@ exports.handleauth = function(req, res) {
 };
 
 exports.feed = function(req, res) {
-  const limit = req.query.limit || process.env.INSTAGRAM_DEFAULT_LIMIT;
+  const limit = req.query.count || process.env.INSTAGRAM_DEFAULT_LIMIT;
   if(!Array.isArray(feed)) return [];
   res.send(feed.splice(0, limit));
 };
