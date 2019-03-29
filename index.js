@@ -45,11 +45,10 @@ exports.handleauth = function(req, res) {
 exports.feed = function(req, res) {
   const limit = req.query.count || process.env.INSTAGRAM_DEFAULT_LIMIT;
   if(!Array.isArray(feed)) return [];
-  const display = JSON.parse(JSON.stringify(feed));
   res.send(
     {
       pagination: {},
-      data: display.splice(0, limit),
+      data: feed.slice(0, limit),
       meta: {
         code: 200
       }
