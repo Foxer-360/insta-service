@@ -1,0 +1,15 @@
+{
+  "name": "@foxer360/instagram-service",
+  "version": "0.0.1",
+  "description": "Instagram feed service",
+  "author": "Pavel Krčil <pavel.krcil@foxmedia.cz>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "instagram-node": "^0.5.8",
+    "request": "^2.88.0"
+  }
+}
